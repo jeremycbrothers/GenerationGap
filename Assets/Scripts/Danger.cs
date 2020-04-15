@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// This probably doesn't need to be a parent class
 public class Danger : MonoBehaviour
 {
     public bool damagesEnemies = false;

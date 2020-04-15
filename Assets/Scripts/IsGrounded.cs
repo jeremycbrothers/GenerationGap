@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+///<summary>
+/// This could be moved into somekind of playerCharacter or playerController class
+///</summary>
 [RequireComponent(typeof(Collider2D))]
 public class IsGrounded : MonoBehaviour
 {

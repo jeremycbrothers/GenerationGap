@@ -452,18 +452,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 29667938}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bb93e0ad8649a04d8e5059b3ad6c8da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seed: 0
-  platform: {fileID: 0}
-  holder: {fileID: 0}
   misc: []
-  enemies: []
+  platform:
+  - {fileID: 0}
   gen: {fileID: 0}
   dist: 0
+  platwidth: 0
   buffer: 0
 --- !u!1 &43079071
 GameObject:
@@ -13430,7 +13429,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1427377335
 MonoBehaviour:
@@ -13446,6 +13445,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1538907537}
   offset: {x: 2.5, y: 1, z: -10}
+--- !u!1 &1445676975
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 1375368401}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1445676976}
+  m_Layer: 0
+  m_Name: Missing Prefab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1445676976
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 1375368401}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445676975}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1755447495}
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1481121834
 GameObject:
   m_ObjectHideFlags: 0
@@ -13844,12 +13874,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1733629613}
   m_CullTransparentMesh: 0
---- !u!1 &1755447493 stripped
+--- !u!1 &1755447493
 GameObject:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 1803994881931126, guid: 4d375779395ada44c8918d2fcfb0ead8,
     type: 3}
   m_PrefabInstance: {fileID: 1375368401}
   m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1755447495}
+  - component: {fileID: 1755447494}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!114 &1755447494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13862,17 +13904,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ecfa09c81b42ed41a9535dfd5ca2ab9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagesEnemies: 0
-  contactDamage: 1
-  speed: 4
-  flipOnAwake: 0
-  canDie: 1
-  autoStopHorizontal: 1
+  movementMultiplier: 1
   laserPrefab: {fileID: 0}
   shotFrequency: 3
   shotSpeed: 3
   flapFrequency: 0.2
   flapPower: 1
+--- !u!4 &1755447495
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 1375368401}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755447493}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1445676976}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1769521228
 GameObject:
   m_ObjectHideFlags: 0
@@ -14732,7 +14783,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4148301540607222, guid: 3a27a2ae3f00f344ebe5b19c07aba334, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114364469082982430, guid: 3a27a2ae3f00f344ebe5b19c07aba334,
         type: 3}
@@ -14837,6 +14888,7 @@ GameObject:
   - component: {fileID: 2125563411}
   - component: {fileID: 2125563412}
   - component: {fileID: 2125563413}
+  - component: {fileID: 2125563414}
   m_Layer: 0
   m_Name: Skunk
   m_TagString: Untagged
@@ -15021,6 +15073,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1538907537}
   tarRange: 0
+--- !u!114 &2125563414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125563405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fa197fc91284e44084e58855e53359c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementMultiplier: 1
 --- !u!224 &458856739528110732
 RectTransform:
   m_ObjectHideFlags: 0

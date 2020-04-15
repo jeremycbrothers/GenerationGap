@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Sphinx : Enemy
 {
+    /*
     public float chargeDuration;
 
 
@@ -18,7 +19,7 @@ public class Sphinx : Enemy
         if (obj.CompareTag("Player") && !charging)
         {
             charging = true;
-            anim.SetBool("IsCharging", charging);
+            //anim.SetBool("IsCharging", charging);
 
             float directionToPlayer = (obj.transform.position - transform.position).x;
             chargeDirection = Mathf.Sign(directionToPlayer);
@@ -27,9 +28,9 @@ public class Sphinx : Enemy
         }
     }
 
-    public override void CalculateMove()
+    public void CalculateMove()
     {
-        base.CalculateMove();
+        //base.CalculateMove();
 
         if (charging)
         {
@@ -38,12 +39,13 @@ public class Sphinx : Enemy
             if (chargeTimeLeft <= 0)
             {
                 charging = false;
-                anim.SetBool("IsCharging", charging);
+                //anim.SetBool("IsCharging", charging);
             }
             else
             {
-                horiz = speed * chargeDirection;
+                //horiz = speed * chargeDirection;
             }
         }
     }
+    */
 }

@@ -4,84 +4,89 @@ using UnityEngine;
 
 public class HorusBird : Enemy
 {
-    public GameObject laserPrefab;
-    public float shotFrequency = 3f, 
-                 shotSpeed = 3f,
-                 flapFrequency = .2f,
-                 flapPower = 1f;
+    // public GameObject laserPrefab;
+    // public float shotFrequency = 3f, 
+    //              shotSpeed = 3f,
+    //              flapFrequency = .2f,
+    //              flapPower = 1f;
 
-    private bool playerSeen;
-    private Transform shotTarget;
-    private float timeUntilShot = 0f,
-                  timeUntilFlap = 0f;
+    // private bool playerSeen;
+    // private Transform shotTarget;
+    // private float timeUntilShot = 0f,
+    //               timeUntilFlap = 0f;
 
-    private float lowestVel = 0f;
+    // private float lowestVel = 0f;
 
-    public override void FixedUpdate()
-    {
-        base.FixedUpdate();
+    // private float horiz;
+    // private float vert;
+    // private bool facingRight;
+    // private Rigidbody2D rBody;
 
-        timeUntilShot -= Time.deltaTime;
-        if (timeUntilShot <= 0f && playerSeen)
-        {
-            ShootLaser();
-        }
-    }
+    // protected override void FixedUpdate()
+    // {
+    //     base.FixedUpdate();
 
-    public override void ObjectEnteredSensor(GameObject obj)
-    {   
-        base.ObjectEnteredSensor(obj);
+    //     timeUntilShot -= Time.deltaTime;
+    //     if (timeUntilShot <= 0f && playerSeen)
+    //     {
+    //         ShootLaser();
+    //     }
+    // }
 
-        if (obj.CompareTag("Player"))
-        {
-            playerSeen = true;
-            shotTarget = obj.transform;
-        }
-    }
+    // public override void ObjectEnteredSensor(GameObject obj)
+    // {   
+    //     base.ObjectEnteredSensor(obj);
 
-    public override void ObjectLeftSensor(GameObject obj)
-    {
-        base.ObjectLeftSensor(obj);
+    //     if (obj.CompareTag("Player"))
+    //     {
+    //         playerSeen = true;
+    //         shotTarget = obj.transform;
+    //     }
+    // }
 
-        if (obj.CompareTag("Player"))
-        {
-            playerSeen = false;
-            shotTarget = null;
-        }
-    }
+    // public override void ObjectLeftSensor(GameObject obj)
+    // {
+    //     base.ObjectLeftSensor(obj);
 
-    public override void CalculateMove()
-    {
-        base.CalculateMove();
+    //     if (obj.CompareTag("Player"))
+    //     {
+    //         playerSeen = false;
+    //         shotTarget = null;
+    //     }
+    // }
 
-        if (playerSeen)
-        {
-            float directionToPlayer = (shotTarget.position - transform.position).x;
+    // public void CalculateMove()
+    // {
+    //    // base.CalculateMove();
 
-            if ((directionToPlayer < 0 && !facingRight) || (directionToPlayer > 0 && facingRight))
-                Flip();
-        }
+    //     if (playerSeen)
+    //     {
+    //         float directionToPlayer = (shotTarget.position - transform.position).x;
 
-        horiz = (facingRight ? -.2f : .2f);
+    //         if ((directionToPlayer < 0 && !facingRight) || (directionToPlayer > 0 && facingRight)) {}
+    //            // Flip();
+    //     }
 
-        if (rBody.velocity.y < lowestVel) lowestVel = rBody.velocity.y;
+    //     horiz = (facingRight ? -.2f : .2f);
 
-        timeUntilFlap -= Time.deltaTime;
-        if (timeUntilFlap <= 0f)
-        {
-            vert = flapPower;
-            timeUntilFlap = flapFrequency;
-        }
-    }
+    //     if (rBody.velocity.y < lowestVel) lowestVel = rBody.velocity.y;
 
-    private void ShootLaser()
-    {
-        Vector3 shotVelocity = (shotTarget.position - transform.position).normalized * shotSpeed;
+    //     timeUntilFlap -= Time.deltaTime;
+    //     if (timeUntilFlap <= 0f)
+    //     {
+    //         vert = flapPower;
+    //         timeUntilFlap = flapFrequency;
+    //     }
+    // }
 
-        Projectile shot = Instantiate(laserPrefab, transform.position + shotVelocity.normalized, Quaternion.identity).GetComponent<Projectile>();
-        shot.velocity = shotVelocity;
+    // private void ShootLaser()
+    // {
+    //     Vector3 shotVelocity = (shotTarget.position - transform.position).normalized * shotSpeed;
 
-        timeUntilShot = shotFrequency;
-        Debug.Log("pew");
-    }
+    //     Projectile shot = Instantiate(laserPrefab, transform.position + shotVelocity.normalized, Quaternion.identity).GetComponent<Projectile>();
+    //     shot.velocity = shotVelocity;
+
+    //     timeUntilShot = shotFrequency;
+    //     Debug.Log("pew");
+    // }
 }

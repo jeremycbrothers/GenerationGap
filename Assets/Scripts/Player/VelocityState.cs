@@ -1,0 +1,1 @@
+﻿public enum VelocityState { idle, walking, jumping, falling, attacking, hurt };
