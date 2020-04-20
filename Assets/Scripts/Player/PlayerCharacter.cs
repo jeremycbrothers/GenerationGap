@@ -17,6 +17,8 @@ public class PlayerCharacter : MonoBehaviour
     [SerializeField] private int health;
     [SerializeField] private Text healthAmount;
 
+    public Collider2D GetCollider() { return collider2d; }
+
     // Awake is called when the script instance is being loaded.
     private void Awake()
     {
@@ -59,10 +61,10 @@ public class PlayerCharacter : MonoBehaviour
         }
     }
 
-    private void TakeDamage()
+    public void TakeDamage()
     {
         health--;
-        healthAmount.text = health.ToString();
+//        healthAmount.text = health.ToString();
         if(health <= 0)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);

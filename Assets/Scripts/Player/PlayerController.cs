@@ -74,8 +74,15 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        Enemy enemy = collider.gameObject.GetComponent<Enemy>();
-        enemy.SetDeathTrigger();
+        // Check that only the player's weapon can kill an enemy.
+        if(hitBox != null)
+        {
+            // Check that the hitbox is colliding with non triggers.
+            if(!collider.isTrigger) {
+                Enemy enemy = collider.gameObject.GetComponent<Enemy>();
+                enemy.SetDeathTrigger();
+            }
+        }
     }
 
     // Move the character when input is recieved from the player
