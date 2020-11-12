@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Joe
   - Enemy
+  - Platforms
+  - FinishLine
   layers:
   - Default
   - TransparentFX
@@ -20,7 +22,7 @@ TagManager:
   - Enemy
   - EnemySensor
   - Player
-  - 
+  - Platform
   - 
   - 
   - 
@@ -42,4 +44,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: StaticSceneComponents
+    uniqueID: 3253901263
+    locked: 0
+  - name: DynamicSceneComponents
+    uniqueID: 3997865775
     locked: 0

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
@@ -13,17 +11,28 @@ public class PlayerCharacter : MonoBehaviour
     private PlayerController playerController;
 
     // Serialized components/variables
-    [SerializeField] private float hurtForce = 10f;
+    [Tooltip("Used to calculate the amount of push back happens when the player is damaged.")]
+    [SerializeField] private float hurtForce = 1f;
+
+    [Tooltip("Players default health")]
     [SerializeField] private int health;
+
+    [Tooltip("Player health UI element")]
     [SerializeField] private Text healthAmount;
 
-    public Collider2D GetCollider() { return collider2d; }
+    /**
+        The rigid body is used in determining whether or not the player is infornt or behind an enemy.!--
+        GetRBPosition allows another script to access this information.!--
+        @return rb (RigidBody2D) - physics object used to get the players location
+    */
+    public Vector2 GetRBPosition() { return rb.position; }
 
     // Awake is called when the script instance is being loaded.
     private void Awake()
     {
         collider2d = GetComponent<Collider2D>();
         rb = GetComponent<Rigidbody2D>();
+        rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
         playerController = GetComponent<PlayerController>();
     }
 
@@ -38,7 +47,7 @@ public class PlayerCharacter : MonoBehaviour
             // "kill" the enemy. Otherwise take damage from the enemy.
             if(playerController.getState() == VelocityState.falling)
             {
-                enemy.SetDeathTrigger(); // This kills the enemy.
+                enemy.SetDeathTrigger(); // This kills the enemy. It also assumes that all enemies have one health.
                 playerController.Jump();
             }
 
@@ -64,7 +73,10 @@ public class PlayerCharacter : MonoBehaviour
     public void TakeDamage()
     {
         health--;
-//        healthAmount.text = health.ToString();
+        // Uncomment when UI is ready.
+        // healthAmount.text = health.ToString();
+        
+        // Reset the level if player dies. 
         if(health <= 0)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
