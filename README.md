@@ -6,5 +6,6 @@ Character movement:</br>
 - A/D - left/right movement</br>
 - Spacbar - jump</br>
 - Left mouse button - attack</br>
+- Left Shift - sprint</br>
   
 The character can jump on an enemy as a second attack.
