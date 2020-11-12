@@ -6,6 +6,11 @@ my portfolio. If the license changes to some variant open source license this sh
 If the license changes I will remove this repository and all it's code at the original owners request.</br>
 If you would like to see the state of the project made by the team please check out commit: 01fd1fdaa052d0faf5a089bb5a8cca94f52a1fff </br>
 Note: I did remove some custom tools made by other students to avoid taking credit for work done outside the scope of the game. </br></br>
+At commit 01fd1fdaa052d0faf5a089bb5a8cca94f52a1fff the follow team members are given the following credits (in alphabetical order):
+Dr. Adam Whitley - Director/Game Design
+JB - Programmer (RoomGeneration/Enemy Design)
+JV - Programmer/Artist - (Background art/Technical Programming)
+ML - Programmer - (Enemy generation/Development Ops)
 
 Quick tutorial:</br>
 Character movement:</br>
